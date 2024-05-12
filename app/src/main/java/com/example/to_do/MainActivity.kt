@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding

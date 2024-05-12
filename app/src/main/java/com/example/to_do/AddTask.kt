@@ -43,16 +43,14 @@ class AddTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePic
         db= TaskDatabaseHelper(this)
 
         binding.saveButton.setOnClickListener{
-            val title=binding.titleEditText.text.toString()
-            val content=binding.contentEditText.text.toString()
-            val task=Task(0,title,content)
+            val title = binding.titleEditText.text.toString()
+            val content = binding.contentEditText.text.toString()
+            val priority = binding.deadlineEditText.text.toString()
+            val dateTime = "$saveDay-$saveMonth-$saveYear $saveHour:$saveMinute"
+            val task = Task(0, title, content, priority,dateTime) // Include dateTime in the constructor
             db.insertTask(task)
             finish()
-            Toast.makeText(this,"Task saved",Toast.LENGTH_SHORT).show()
-
-
-
-
+            Toast.makeText(this, "Task saved", Toast.LENGTH_SHORT).show()
         }
 
     }

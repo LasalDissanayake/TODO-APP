@@ -39,7 +39,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/add1"
+        android:src="@drawable/check1"
         app:tint="@color/white"
         android:backgroundTint="@color/blue"
         />

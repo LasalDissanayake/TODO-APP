@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF"
     android:orientation="vertical"
+    android:backgroundTint="@color/white"
     android:padding="16dp"
-    tools:context=".UpdateActivity">
+    tools:context=".UpdateActivity"
+    >
 
     <TextView
         android:id="@+id/editTaskHeding"
@@ -14,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#D1A4A4"
+        android:background="#D3ECC5"
         android:fontFamily="@font/poppins"
         android:text="Edit Task"
         android:textColor="@color/blue"
@@ -34,30 +36,61 @@
         android:layout_height="60dp"
         android:layout_below="@id/editTaskHeding"
         android:layout_marginTop="16dp"
-        android:background="@drawable/blueborder"
-        android:backgroundTint="#E8B6B6"
+        android:background="@drawable/blue_border"
+        android:backgroundTint="#DDE686"
         android:fontFamily="@font/poppins"
         android:hint="Enter the Title"
         android:maxLines="1"
         android:padding="12dp"
-        android:textColor="@color/blue"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/updateContentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="384dp"
+        android:layout_height="117dp"
         android:layout_below="@id/updateTitleEditText"
         android:layout_marginTop="13dp"
-        android:background="@drawable/blueborder"
-        android:backgroundTint="#C3D5C9"
+        android:background="@drawable/blue_border"
+        android:backgroundTint="#A3EDF6"
         android:fontFamily="@font/poppins"
         android:gravity="top"
-        android:textColor="@color/blue"
         android:hint="Enter the Description"
         android:padding="12dp"
 
 
         android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/updatedeadlineEditText"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/updateContentEditText"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/blue_border"
+        android:backgroundTint="#EF8B8B"
+        android:fontFamily="@font/poppins"
+        android:hint="Priority"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/updatetvtextTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/updatedeadlineEditText"
+        android:layout_marginTop="23dp"
+        android:text="dd/mm/yyyy"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        tools:text="@tools:sample/date/ddmmyy"/>
+
+    <Button
+        android:id="@+id/btn_timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/updatetvtextTime"
+        android:layout_marginTop="-1dp"
+        android:text="Change Date" />
 
 </RelativeLayout>
