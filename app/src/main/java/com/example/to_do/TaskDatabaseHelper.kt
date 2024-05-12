@@ -14,13 +14,13 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         private const val COLUMN_ID = "id"
         private const val COLUMN_TITLE = "title"
         private const val COLUMN_CONTENT = "content"
-
-
+        private const val COLUMN_PRIORITY = "priority"
+        private const val COLUMN_DATETIME = "datetime" // Add this line for the datetime column
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery =
-            "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT,$COLUMN_CONTENT TEXT)"
+            "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT, $COLUMN_PRIORITY TEXT,$COLUMN_DATETIME TEXT)" // Add COLUMN_DATETIME to the query
         db?.execSQL(createTableQuery)
     }
 
@@ -30,11 +30,14 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         onCreate(db)
     }
 
+
     fun insertTask(task: Task) {
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_TITLE, task.title)
             put(COLUMN_CONTENT, task.content)
+            put(COLUMN_PRIORITY, task.priority)
+            put(COLUMN_DATETIME, task.dateTime)
         }
         db.insert(TABLE_NAME, null, values)
         db.close()
@@ -43,15 +46,17 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
     fun getAllTasks(): List<Task> {
         val taskList = mutableListOf<Task>()
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME" // Added space after SELECT
+        val query = "SELECT * FROM $TABLE_NAME ORDER BY $COLUMN_DATETIME ASC"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+            val priority = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRIORITY))
+            val dateTime = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATETIME)) // Add this line for datetime retrieval
 
-            val task = Task(id, title, content)
+            val task = Task(id, title, content,priority, dateTime) // Pass dateTime to Task constructor
             taskList.add(task)
         }
         cursor.close()
@@ -64,6 +69,9 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         val values = ContentValues().apply {
             put(COLUMN_TITLE, task.title)
             put(COLUMN_CONTENT, task.content)
+            put(COLUMN_PRIORITY, task.priority)
+            put(COLUMN_DATETIME, task.dateTime)
+
         }
         val whereClause = "$COLUMN_ID=?"
         val whereArgs = arrayOf(task.id.toString())
@@ -81,12 +89,16 @@ class TaskDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
         val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
         val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+        val priority = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRIORITY))
+        val datetime = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATETIME))
+
 
 
         cursor.close()
         db.close()
-        return Task(id, title ,content)
+        return Task(id, title ,content,priority,datetime)
     }
+
 
     fun deleteTask(taskId:Int){
         val db=writableDatabase

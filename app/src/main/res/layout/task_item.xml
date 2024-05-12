@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#B2E194"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
@@ -11,6 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#A6E8A9"
+        android:backgroundTint="#9FDFA2"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -35,7 +37,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="64dp"
+                android:layout_marginEnd="52dp"
                 android:src="@drawable/edit" />
 
             <ImageView
@@ -43,7 +45,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="0dp"
                 android:src="@drawable/delete" />
 
         </RelativeLayout>
@@ -54,10 +56,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/blue"
+            android:maxLines="3"
+            android:text="Content" />
+
+        <TextView
+            android:id="@+id/priorityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/blue"
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:text="Content" />
+
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
+            android:maxLines="3"
+            android:textColor="@color/blue"
+            android:text="Content" />
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

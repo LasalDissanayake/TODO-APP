@@ -28,15 +28,20 @@ class UpdateActivity : AppCompatActivity() {
             return
         }
 
-        val task=db.getTaskByID(taskId)
+        val task = db.getTaskByID(taskId)
         binding.updateTitleEditText.setText(task.title)
         binding.updateContentEditText.setText(task.content)
+        binding.updatedeadlineEditText.setText(task.priority) // Assuming priority is the correct property name
+        binding.updatetvtextTime.setText(task.dateTime)
+
 
         binding.updateSaveButton.setOnClickListener {
             val newTitle=binding.updateTitleEditText.text.toString()
             val newContent=binding.updateContentEditText.text.toString()
-            val updateTask=Task(taskId,newTitle,newContent)
-            db.updateTask(updateTask)
+            val newPriority=binding.updatedeadlineEditText.text.toString()
+            val newdateTime=binding.updatetvtextTime.text.toString()
+            val updatedTask=Task(taskId,newTitle,newContent,newPriority,newdateTime)
+            db.updateTask(updatedTask)
             finish()
             Toast.makeText(this,"Changes Saved",Toast.LENGTH_SHORT).show()
 
