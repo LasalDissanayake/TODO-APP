@@ -23,11 +23,13 @@ class TasksAdapter(private var tasks: List<Task>, private val context: Context) 
         val deleteButton:ImageView=itemView.findViewById(R.id.deleteButton)
     }
 
+    // Method to create view holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.task_item, parent, false)
         return TaskViewHolder(view)
     }
 
+    // Method to bind data to view holder
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
         holder.titleTextView.text = task.title
@@ -35,9 +37,7 @@ class TasksAdapter(private var tasks: List<Task>, private val context: Context) 
         holder.priorityTextView.text = task.priority
         holder.dateTimeTextView.text = task.dateTime
 
-
-
-
+        // Set up click listener for update button
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context, UpdateActivity::class.java).apply {
                 putExtra("task_id",task.id)
@@ -45,6 +45,7 @@ class TasksAdapter(private var tasks: List<Task>, private val context: Context) 
             holder.itemView.context.startActivity(intent)
         }
 
+        // Set up click listener for delete button
         holder.deleteButton.setOnClickListener {
             db.deleteTask(task.id)
             refreshData(db.getAllTasks())
@@ -52,8 +53,10 @@ class TasksAdapter(private var tasks: List<Task>, private val context: Context) 
         }
     }
 
+    // Method to get item count
     override fun getItemCount(): Int = tasks.size
 
+    // Method to refresh data
     fun refreshData(newTasks: List<Task>) {
         tasks = newTasks
         notifyDataSetChanged()

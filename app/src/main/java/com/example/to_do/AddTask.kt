@@ -17,28 +17,28 @@ import java.util.Calendar
 
 class AddTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
+    // Declaration of variables to hold date and time values
     var day=0
     var month=0
     var year=0
     var hour=0
     var minute=0
 
-    var saveDay=0
-    var saveMonth=0
-    var saveYear=0
-    var saveHour=0
-    var saveMinute=0
+    var saveDay=0 // Variable to save the selected day
+    var saveMonth=0 // Variable to save the selected month
+    var saveYear=0 // Variable to save the selected year
+    var saveHour=0 // Variable to save the selected hour
+    var saveMinute=0 // Variable to save the selected minute
 
     private lateinit var binding:ActivityAddTaskBinding
     private lateinit var db:TaskDatabaseHelper
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        pickDate()
+        pickDate() // Function call to initiate date picking
 
         db= TaskDatabaseHelper(this)
 
@@ -54,6 +54,7 @@ class AddTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePic
         }
 
     }
+    // Function to get current date and time
     private fun getDateTimeCalendar(){
         val cal: Calendar = Calendar.getInstance()
         day=cal.get(Calendar.DAY_OF_MONTH)
@@ -64,6 +65,7 @@ class AddTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePic
 
     }
 
+    // Function to initiate date picking
     private fun pickDate(){
         binding.btnTimePicker.setOnClickListener{
             getDateTimeCalendar()
@@ -72,19 +74,22 @@ class AddTask : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePic
         }
     }
 
+    // Callback method when date is set
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         saveDay = dayOfMonth
-        saveMonth = month+1
+        saveMonth = month+1 // Increment month by 1 because January is represented as 0
         saveYear = year
 
-        getDateTimeCalendar()
-        TimePickerDialog(this, this, hour, minute, true).show()
+        getDateTimeCalendar() // Update calendar instance to current date and time
+        TimePickerDialog(this, this, hour, minute, true).show() // Initiate time picking
     }
 
+    // Callback method when time is set
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        saveHour=hourOfDay
-        saveMinute=minute
+        saveHour=hourOfDay // Save the selected hour
+        saveMinute=minute // Save the selected minute
 
+        // Update UI to display selected date and time
         binding.tvTextTime.text="$saveDay-$saveMonth-$saveYear\n Hour:$saveHour Minute:$saveMinute"
     }
 }

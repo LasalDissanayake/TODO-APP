@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
     android:orientation="vertical"
-    android:backgroundTint="@android:color/white"
     android:padding="16dp"
     tools:context=".AddTask">
 
@@ -18,9 +17,9 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
         android:text="Add Task"
-        android:textStyle="bold"
         android:textColor="@color/blue"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/saveButton"
@@ -40,10 +39,10 @@
         android:backgroundTint="#A9EAAC"
         android:fontFamily="@font/poppins"
         android:hint="Enter the Task"
-        android:textColorHint="@color/blue"
-        android:textColor="@color/blue"
         android:maxLines="1"
         android:padding="12dp"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/blue"
         android:textSize="20sp" />
 
     <EditText
@@ -55,11 +54,11 @@
         android:background="@drawable/blue_border"
         android:backgroundTint="#C9CFF3"
         android:fontFamily="@font/poppins"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blue"
         android:gravity="top"
         android:hint="Description"
         android:padding="12dp"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/blue"
         android:textSize="18sp" />
 
     <EditText
@@ -70,12 +69,12 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/blue_border"
         android:backgroundTint="#EC9292"
-        android:textColorHint="@color/blue"
         android:fontFamily="@font/poppins"
-        android:textColor="@color/blue"
         android:hint="Priority"
         android:maxLines="1"
         android:padding="12dp"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/blue"
         android:textSize="20sp" />
 
     <TextView
@@ -86,7 +85,7 @@
         android:layout_marginTop="23dp"
         android:backgroundTint="#DF9178"
         android:text="dd/mm/yyyy"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:textSize="28sp"
         tools:text="@tools:sample/date/ddmmyy" />
 

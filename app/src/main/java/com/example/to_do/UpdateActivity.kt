@@ -14,7 +14,6 @@ class UpdateActivity : AppCompatActivity() {
     private lateinit var db:TaskDatabaseHelper
     private   var taskId:Int=-1
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUpdateBinding.inflate(layoutInflater)
@@ -34,7 +33,7 @@ class UpdateActivity : AppCompatActivity() {
         binding.updatedeadlineEditText.setText(task.priority) // Assuming priority is the correct property name
         binding.updatetvtextTime.setText(task.dateTime)
 
-
+        // Save button click listener to update task
         binding.updateSaveButton.setOnClickListener {
             val newTitle=binding.updateTitleEditText.text.toString()
             val newContent=binding.updateContentEditText.text.toString()
@@ -44,9 +43,6 @@ class UpdateActivity : AppCompatActivity() {
             db.updateTask(updatedTask)
             finish()
             Toast.makeText(this,"Changes Saved",Toast.LENGTH_SHORT).show()
-
         }
-
-
     }
 }
