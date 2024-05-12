@@ -15,11 +15,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins"
         android:text="Add Task"
-        android:textStyle="bold"
         android:textColor="@color/blue"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"/>
 
     <ImageView
         android:id="@+id/saveButton"
@@ -40,7 +40,8 @@
         android:background="@drawable/blueborder"
         android:layout_marginTop="16dp"
         android:maxLines="1"
-        android:fontFamily="@font/poppins" />
+        android:fontFamily="@font/poppins"
+         />
 
     <EditText
         android:id="@+id/contentEditText"
@@ -49,11 +50,11 @@
         android:layout_below="@id/titleEditText"
         android:layout_marginTop="13dp"
         android:background="@drawable/blueborder"
-        android:fontFamily="@font/poppins"
-        android:gravity="top"
+         android:gravity="top"
         android:hint="Description"
         android:padding="12dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins"/>
 
     <EditText
         android:id="@+id/deadlineEditText"
@@ -62,11 +63,11 @@
         android:layout_below="@id/contentEditText"
         android:layout_marginTop="16dp"
         android:background="@drawable/blueborder"
-        android:fontFamily="@font/poppins"
-        android:hint="Priority"
+         android:hint="Priority"
         android:maxLines="1"
         android:padding="12dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins"/>
 
     <TextView
         android:id="@+id/tv_textTime"
@@ -75,9 +76,10 @@
         android:layout_below="@id/deadlineEditText"
         android:layout_marginTop="23dp"
         android:text="dd/mm/yyyy"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="28sp"
-        tools:text="@tools:sample/date/ddmmyy"/>
+        tools:text="@tools:sample/date/ddmmyy"
+        android:fontFamily="@font/poppins"/>
 
     <Button
         android:id="@+id/btn_timePicker"
