@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0C4878"
+    android:background="#8AB2D3"
     tools:context=".launchScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#084E85"
+        android:background="#46BC8D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,30 +19,16 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="283dp"
-            android:layout_height="206dp"
+            android:layout_width="422dp"
+            android:layout_height="607dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.52"
-            app:srcCompat="@drawable/launch1"
-            tools:ignore="MissingConstraints" />
+            app:srcCompat="@drawable/launch"
+            tools:ignore="MissingConstraints"
+            tools:srcCompat="@drawable/launch" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="302dp"
-            android:layout_height="162dp"
-            android:text="TodoGenius"
-            android:textColor="@color/white"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.906"
-            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
