@@ -13,19 +13,16 @@
         android:theme="@style/Theme.ToDo"
         tools:targetApi="31">
         <activity
-            android:name=".launchScreen"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".UpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".Task"
-            android:exported="false" />
-        <activity
             android:name=".AddTask"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".launchScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+         
     </application>
 
 </manifest>
